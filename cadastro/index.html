@@ -1,0 +1,67 @@
+<html>
+<meta charset="UTF-8" />
+<head>	
+	<title>Cadastro validado pelo JS</title>
+	<script src="/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+	<script src="/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="/bootstrap/bootstrap-3.3.6-dist/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="estilo.css" />
+	<!-- Date: 2015-11-29 -->
+	<!-- Inicio da validação por JavaScript -->
+	<script language="javascript" type="text/javascript">
+		function validar() {
+			document.getElementById('erroNome').style.display="none";
+			document.getElementById('erroCPF').style.display="none";
+			document.getElementById('invalidCPF').style.display="none";
+			var nome = cadastro.nome.value;
+			var cpf = cadastro.cpf.value;
+			var email = cadastro.email.value;
+			
+			if (nome ==  ''){
+				document.getElementById('erroNome').style.display="block";
+				return false;
+			}
+			if (cpf == ''){
+				document.getElementById('erroCPF').style.display="block";
+				return false;
+			}
+			if (cpf.length != 11){
+				document.getElementById('invalidCPF').style.display="block";
+				return false;
+			}
+			if (email ==  ''){
+				document.getElementById('erroEmail').style.display="block";
+				return false;
+			}
+			if(validar = true){
+				var string = "Cadastro Realizado!";
+				alert(string +"\n"+ nome +"\n"+ cpf +"\n"+ email);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="jumbotron">
+		<h4>Cadastro de Cliente</h4>
+		<form class="form-control" name="cadastro">
+			<input class="form-control" type="text" name="nome" placeholder="Nome" /> <br />
+			<input class="form-control" type="text" name="cpf" placeholder="Digite o seu CPF" /> <br />
+			<input class="form-control" type="text" name="email" placeholder="Digite o seu email" /> <br />
+			<button class="btn btn-primary btn-block" onclick="return validar()">Adicionar Contato</button>
+		</form>
+		<div id="erroNome" class="alert alert-danger" style="display: none">
+			O campo nome deve ser preechido!
+		</div>
+		<div id="erroCPF" class="alert alert-danger" style="display: none">
+			O campo CPF deve ser preechido!
+		</div>
+		<div id="invalidCPF" class="alert alert-danger" style="display: none">
+			CPF Inválido!
+		</div>
+		<div id="erroEmail" class="alert alert-danger" style="display: none">
+			Email não pode ficar em branco!
+		</div>
+	</div>
+</body>
+</html>
+
